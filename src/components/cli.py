@@ -11,12 +11,13 @@ class Cli:
         """
             ui aloitus ruutu
         """
-        print("\n")
         print("OHTU ohjelma")
         print("Valitse:")
         print("Lisää lähde [1]")
         print("Tulosta lähteet [2]")
-        print("Lopeta [3]")
+        print("Generoi BibTeX-tiedosto [3]")
+        print("Ohje [4]")
+        print("Lopeta [5]")
         while True:
             i = input()
             match i:
@@ -26,7 +27,11 @@ class Cli:
                     return 2
                 case "3":
                     return 3
-                case _:  
+                case "4":
+                    return 4
+                case "5":
+                    return 5
+                case _:
                     continue
 
     def lisaa_lahde(self):
@@ -37,6 +42,7 @@ class Cli:
         """
         print("\n")
         print("Ei ole toteutettu")
+        print("\n")
 
     def tulosta_lahde(self):
         """
@@ -44,7 +50,33 @@ class Cli:
         """
         print("\n")
         print("Ei ole toteutettu")
+        print("\n")
        
+    def tulosta_ohje(self):
+        """
+            Tulostaa ohjelman käyttöön 
+        """
+        print("\n")
+        print("Ohje")
+        print()
+        s = "Ohjelman avulla käyttäjä pystyy lisäämään lähteitä järjestälmään ja käyttäjä pystyy genoroimaan BibTeX-tiedoston. Järjestelmä myös listaa tallennetut lähteet."
+        print(s + "\n")
+        s = "Syöttämällä \"1\" käyttäjä pystyy lisäämään uuden lähteen järjestälmään."
+        print(s + "\n")
+        s = "Syöttämällä \"2\" käyttäjä pystyy tulostamaan lähteet."
+        print(s + "\n")
+        s = "Syöttämällä \"3\" käyttäjä pystyy generoimaan BibTeX-tiedoston."
+        print(s + "\n")
+        s = "Syöttämällä \"4\" käyttäjä pystyy tulostamaan ohjeet."
+        print(s + "\n")
+        s = "Syöttämällä \"5\" käyttäjä pystyy lopettamaan ohjelman."
+        print(s + "\n")
+
+    def generoi_tiedosto(self):
+        """
+            Funktio, joka generoi tiedoston
+        """
+        print("Ei ole toteutettu" + "\n")
     def kaynnista(self):
         """
             Funktio, jolla käynnistetään ohjelma
@@ -56,4 +88,9 @@ class Cli:
             if vastaus == 2:
                 self.tulosta_lahde()
             if vastaus == 3:
-                break
+                self.generoi_tiedosto()
+            if vastaus == 4:
+                self.tulosta_ohje()
+            if vastaus == 5:
+                print("Kiitos ohjelman käytöstä")
+                return
