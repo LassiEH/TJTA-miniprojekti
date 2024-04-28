@@ -1,3 +1,4 @@
+![Workflow badge]https://github.com/LassiEH/TJTA-miniprojekti/workflows/CI/badge.svg
 # Latex-lähteidenhallintaohjelma
 
 Tämä projekti on lähteidenhallintaohjelma, jolla käyttäjä pystyy lisäämään lähteitä järjestelmään ja luomaan näistä lähteistä BibTex-muotoisen tiedoston
