@@ -2,7 +2,7 @@
 name = "tjta-miniprojekti"
 version = "0.1.0"
 description = ""
-authors = [""]
+authors = ["E. Brunila, L. Haarala, O. Nykänen, S. Peura, L. Raivonen"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
