@@ -1,8 +1,12 @@
+from .refmake import *
+from .ref import Ref #Poista tämä kun tietokanta on toiminnallinen
+
 class Cli:
     """
         komentorivi pohjainen käyttöliittymä ohjelmalle
     """
-
+    tempref = None #Väliaikainen tietovarasto...
+    
     def __init__(self):
         pass
 
@@ -40,17 +44,13 @@ class Cli:
             esim. kysyy inputteja 
             toteutetaan oliona lähteen lisäys tiedostoon
         """
-        print("\n")
-        print("Ei ole toteutettu")
-        print("\n")
+        self.tempref = appArticle()
 
     def tulosta_lahde(self):
         """
             Funktio, jolla tulostetaan lähteet terminaaliin
         """
-        print("\n")
-        print("Ei ole toteutettu")
-        print("\n")
+        print(self.tempref) #TODO: paranneltu tulostaminen
        
     def tulosta_ohje(self):
         """
