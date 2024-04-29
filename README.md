@@ -12,3 +12,9 @@ Tämä projekti on lähteidenhallintaohjelma, jolla käyttäjä pystyy lisääm�
 # Käyttöohjeet
 
 # Definition of Done
+* Järkevät yksikkötestit
+* Testikattavuus vähintään 80%
+* Koodi tarkastettu toisen kehittäjän toimesta
+* Ominaisuuden toiminnallisuus testattu
+* Asetetut hyväksymiskriteerit täyttyvät
+* Asiakas hyväksyy
