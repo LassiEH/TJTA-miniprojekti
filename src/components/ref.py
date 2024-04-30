@@ -15,4 +15,4 @@ class Ref:
                 s += ", "
             else:
                 s += ". "
-        return s + self.title + ": " + self.journal + ", " +  self.volume + ". " + self.pages + ", " + str(self.year)
+        return s + self.title + ": " + self.journal + ", " +  str(self.volume) + ". " + str(self.pages) + ", " + str(self.year)
