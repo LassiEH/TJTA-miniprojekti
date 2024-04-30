@@ -8,8 +8,16 @@ Tämä projekti on lähteidenhallintaohjelma, jolla käyttäjä pystyy lisääm�
 [CI-palvelu](https://app.codecov.io/gh/LassiEH/TJTA-miniprojekti)
 
 # Asennusohjeet
+* Kloonaa github-repositorio haluamaasi sijaintiin laitteellasi.
 
 # Käyttöohjeet
+* Siirry kloonaamaasi hakemistoon
+* Ohjelman saat käyntiin komennolla:
+```
+python src/main.py
+```
+
+
 
 # Definition of Done
 * Järkevät yksikkötestit
