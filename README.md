@@ -16,7 +16,16 @@ Tämä projekti on lähteidenhallintaohjelma, jolla käyttäjä pystyy lisääm�
 ```
 python src/main.py
 ```
-
+* Ohjelma aukeaa seuraavanlaiseen valikkoon:
+```
+Valitse:
+Lisää lähde [1]
+Tulosta lähteet [2]
+Generoi BibTeX-tiedosto [3]
+Ohje [4]
+Lopeta [5]
+```
+* Tässä voi numeron kirjoittamalla valita mitä haluat sovelluksella tehdä.
 
 
 # Definition of Done
