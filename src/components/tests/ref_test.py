@@ -1,6 +1,6 @@
 import unittest
-from ref import Ref
-from references import References
+from ..ref import Ref
+from ..references import References
 
 class TestRef(unittest.TestCase):
 
