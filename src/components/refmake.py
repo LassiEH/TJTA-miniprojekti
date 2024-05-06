@@ -19,4 +19,12 @@ def appArticle():
     pagestr = input()
     print("Syötä tunniste:\n> ")
     keystr = input() #Älä tee mitään? Tietotyypistä puuttuu tunniste!
-    return Ref(authlist, titlestr, jourstr, yearstr, volstr, pagestr)
+    print("Syötä omat avainsanat pilkulla eroteltuna:\n> ")
+    usrkeystr = input()
+    # Testataan, että käyttäjän syöte ei ole tyhjä tai ettei se sisällä vain whitespacea.
+    if not (len(usrkeystr) == 0 or usrkeystr.isspace()):
+        usrkeylist = usrkeystr.split(',')
+    # Jos käyttäjä ei anna sopivaa syötettä, usrkeylistin arvoksi tulee tyhjä.
+    else:
+        usrkeylist = ""
+    return Ref(authlist, titlestr, jourstr, yearstr, volstr, pagestr, usrkeylist)

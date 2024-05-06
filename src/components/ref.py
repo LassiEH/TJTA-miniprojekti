@@ -1,11 +1,12 @@
 class Ref:
-    def __init__(self, author, title, journal, year, volume, pages):
+    def __init__(self, author, title, journal, year, volume, pages, userkeys):
         self.author: list = author
         self.title = title
         self.journal = journal
         self.year = year
         self.volume = volume
         self.pages = pages
+        self.userkeys: list = userkeys
 
     def __str__(self):
         s = ""
