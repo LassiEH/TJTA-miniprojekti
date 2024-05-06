@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Testitapaukset ref-luokan toiminnalle
+Documentation    Testitapaukset ref-luokan ja references-luokan toiminnalle
 Resource         resource.robot
 
 Library    Collections
@@ -8,7 +8,7 @@ Library    BuiltIn
 
 *** Test Cases ***
 Testaa ref luokka oikealla datalla
-    [Documentation]    Testaa, että ref luokka toimii oikealla datalla
+    [Documentation]    Testaa, että ref-luokka toimii oikealla datalla
     [Tags]             init
 
     ${ref}    Artikkeli datalla
@@ -16,7 +16,7 @@ Testaa ref luokka oikealla datalla
     Should Be Equal As Strings    ${ref}    John Smith. Test title: a case study: Journal on testing, 2. 1-3, 2024
 
 Testaa ref luokka tyhjillä tekijöillä
-    [Documentation]    Testaa, että ref luokka ei tallenna, jos syötteessä ei ole kirjoittajaa
+    [Documentation]    Testaa, että ref-luokka ei tallenna, jos syötteessä ei ole kirjoittajaa
     [Tags]             init
     
     ${ref}    Artikkeli datalla
