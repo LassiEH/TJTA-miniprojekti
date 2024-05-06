@@ -1,26 +1,35 @@
 from .ref import Ref
+from .author import Author
 
 #def mkArticle(bibkey, title, journal, year, vol, authlist)
 
 #TODO: Hyödynnä tässä dependency injectionia
 def appArticle():
-    print("Syötä kirjoittajat pilkulla eroteltuna:\n> ")
-    authstr = input()
-    authlist = authstr.split(',')
-    print("Syötä otsikko:\n> ")
-    titlestr = input()
-    print("Syötä julkaisu:\n> ")
-    jourstr = input()
-    print("Syötä vuosi:\n> ")
-    yearstr = input()
-    print("Syötä osa (volume):\n> ")
-    volstr = input()
-    print("Syötä sivut viivalla eroteltuna:\n> ")
-    pagestr = input()
-    print("Syötä tunniste:\n> ")
-    keystr = input() #Älä tee mitään? Tietotyypistä puuttuu tunniste!
-    print("Syötä omat avainsanat pilkulla eroteltuna:\n> ")
-    usrkeystr = input()
+    print("Syötä kirjoittajat:")
+    authlist = []
+    while True:
+        print("Sukunimi (jätä tyhjäksi lopettaaksesi):")
+        laststr = input("> ")
+        if not laststr:
+            break
+        print("Etunimi tai nimet (valinnainen):")
+        firststr = input("> ")
+        authlist.append(Author(laststr, firststr))
+    
+    print("Syötä otsikko:")
+    titlestr = input("> ")
+    print("Syötä julkaisu:")
+    jourstr = input("> ")
+    print("Syötä vuosi:")
+    yearstr = input("> ")
+    print("Syötä osa (volume):")
+    volstr = input("> ")
+    print("Syötä sivut viivalla eroteltuna:")
+    pagestr = input("> ")
+    print("Syötä tunniste:")
+    keystr = input("> ") #Älä tee mitään? Tietotyypistä puuttuu tunniste!
+    print("Syötä omat avainsanat pilkulla eroteltuna:")
+    usrkeystr = input("> ")
     # Testataan, että käyttäjän syöte ei ole tyhjä tai ettei se sisällä vain whitespacea.
     if not (len(usrkeystr) == 0 or usrkeystr.isspace()):
         usrkeylist = usrkeystr.split(',')

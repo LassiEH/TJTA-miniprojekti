@@ -11,7 +11,7 @@ class Ref:
     def __str__(self):
         s = ""
         for i, name in enumerate(self.author):
-            s += name
+            s += str(name)
             if (i < len(self.author) - 1):
                 s += ", "
             else:
