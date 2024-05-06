@@ -132,7 +132,18 @@ pluggy = ">=1.4,<2.0"
 [package.extras]
 testing = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
+[[package]]
+name = "robotframework"
+version = "7.0"
+description = "Generic automation framework for acceptance testing and robotic process automation (RPA)"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "robotframework-7.0-py3-none-any.whl", hash = "sha256:865f427c4e4ec8c0b71a24dedbdad6668adfecc9fce04d77d02e1b8e54b77f41"},
+    {file = "robotframework-7.0.zip", hash = "sha256:04623f758346c917db182e17591ffa474090560c02ed5a64343902e72b7b4bd5"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a280d5f4a672ecddbd8b1a2175321200a45fd8c995a3fc4aa5149c57b82d2a57"
+content-hash = "ccc68f07d0cc88c23cd8feacd8bca9c4ab7a8e2a6cfcb1c4624ed709260a04ad"
