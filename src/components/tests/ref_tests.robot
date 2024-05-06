@@ -9,7 +9,7 @@ Library    BuiltIn
 *** Test Cases ***
 Testaa ref luokka oikealla datalla
     [Documentation]    Testaa, että ref-luokka toimii oikealla datalla
-    [Tags]             init
+    [Tags]             init    ref
 
     ${ref}    Artikkeli datalla
 
@@ -17,12 +17,12 @@ Testaa ref luokka oikealla datalla
 
 Testaa ref luokka tyhjillä tekijöillä
     [Documentation]    Testaa, että ref-luokka ei tallenna, jos syötteessä ei ole kirjoittajaa
-    [Tags]             init
+    [Tags]             init    ref
     
     ${ref}    Artikkeli datalla
     Should Be Equal As Strings    ${ref}    None
 
-Testaa Reference-luokka
+Testaa Reference-luokan lisäys- ja tekstiksi muuttamisen metodin
     [Documentation]    Testaa, että Ref-olio voidaan lisätä References-olioon
     [Tags]             references
     
