@@ -20,3 +20,9 @@ class References:
             return 0
         self.references.append(ref)
         return 1
+
+    def is_key_taken(self, bibtexkey):
+        for r in self.references:
+            if bibtexkey == r.bibtexkey:
+                return True
+        return False

@@ -42,7 +42,7 @@ class Cli:
             esim. kysyy inputteja 
             toteutetaan oliona lähteen lisäys tiedostoon
         """
-        ref = appArticle()
+        ref = appArticle(self.references)
         self.references.lisaaLahde(ref)
 
     def tulosta_lahde(self):

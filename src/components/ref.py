@@ -1,5 +1,7 @@
 class Ref:
-    def __init__(self, author, title, journal, year, volume, pages, userkeys):
+    def __init__(self, author, title, journal, year, volume, pages, userkeys, bibtexkey):
+        #TODO: Yleistä tämä luokka!
+        self.bibtexkey = bibtexkey
         self.author: list = author
         self.title = title
         self.journal = journal
