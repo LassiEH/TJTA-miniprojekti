@@ -1,6 +1,6 @@
 [MASTER]
-
 ignore=tests
+fail-under=8
 
 [MESSAGE CONTROL]
 
