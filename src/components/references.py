@@ -17,6 +17,6 @@ class References:
 
     def lisaaLahde(self, ref):
         if not isinstance(ref, Ref):
-                return 0
+            return 0
         self.references.append(ref)
         return 1
