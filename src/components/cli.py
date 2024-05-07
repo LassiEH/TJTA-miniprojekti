@@ -4,11 +4,11 @@ class Cli:
     """
         komentorivi pohjainen käyttöliittymä ohjelmalle
     """
-    
+
     def __init__(self, lahteet):
         self.references = lahteet
 
-        
+
     def aloitus(self):
         """
             ui aloitus ruutu
@@ -49,9 +49,9 @@ class Cli:
         """
             Funktio, jolla tulostetaan lähteet terminaaliin
         """
-        
+
         print("\n"+ self.references.toString() + "\n") #TODO: paranneltu tulostaminen
-       
+
     def tulosta_ohje(self):
         """
             Tulostaa ohjelman käyttöön 
