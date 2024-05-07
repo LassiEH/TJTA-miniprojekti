@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240507 07:16:42.203" rpa="false" schemaversion="4">
+<suite id="s1" name="Author Tests" source="/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/tests/author_tests.robot">
+<test id="s1-t1" name="Testaa author-olion luonti" line="8">
+<kw name="Evaluate" library="BuiltIn">
+<var>${testauthor}</var>
+<arg>author.Author("Testi Hahmo")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240507 07:16:42.226" level="INFO">${testauthor} = Testi Hahmo</msg>
+<status status="PASS" starttime="20240507 07:16:42.225" endtime="20240507 07:16:42.226"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${testauthor}</arg>
+<arg>Testi Hahmo</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20240507 07:16:42.226" level="INFO">Argument types are:
+&lt;class 'author.Author'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20240507 07:16:42.226" endtime="20240507 07:16:42.226"/>
+</kw>
+<status status="PASS" starttime="20240507 07:16:42.225" endtime="20240507 07:16:42.226"/>
+</test>
+<test id="s1-t2" name="Testaa merkkijonoksi muuttaminen" line="12">
+<kw name="Evaluate" library="BuiltIn">
+<var>${testauthor}</var>
+<arg>author.Author("Testi Henkilö")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240507 07:16:42.227" level="INFO">${testauthor} = Testi Henkilö</msg>
+<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.227"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${str}</var>
+<arg>${testauthor}</arg>
+<arg>__str__</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20240507 07:16:42.227" level="INFO">${str} = Testi Henkilö</msg>
+<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.227"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${str}</arg>
+<arg>Testi Henkilö</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.228"/>
+</kw>
+<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.228"/>
+</test>
+<test id="s1-t3" name="Testaa apa-muotoinen merkkijono" line="17">
+<kw name="Evaluate" library="BuiltIn">
+<var>${testauthor}</var>
+<arg>author.Author("Testi Tutkija")</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240507 07:16:42.229" level="INFO">${testauthor} = Testi Tutkija</msg>
+<status status="PASS" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.229"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${str}</var>
+<arg>${testauthor}</arg>
+<arg>apastr</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20240507 07:16:42.229" level="INFO">${str} = Testi Tutkija</msg>
+<status status="PASS" starttime="20240507 07:16:42.229" endtime="20240507 07:16:42.229"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${str}</arg>
+<arg>Tutkija, T.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20240507 07:16:42.229" level="FAIL">Testi Tutkija != Tutkija, T.</msg>
+<status status="FAIL" starttime="20240507 07:16:42.229" endtime="20240507 07:16:42.229"/>
+</kw>
+<status status="FAIL" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.230">Testi Tutkija != Tutkija, T.</status>
+</test>
+<doc>Testitapaukset author-luokalle</doc>
+<status status="FAIL" starttime="20240507 07:16:42.204" endtime="20240507 07:16:42.230"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="Author Tests">Author Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240507 07:16:42.223" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/ref.py' contains no keywords.</msg>
+<msg timestamp="20240507 07:16:42.224" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/references.py' contains no keywords.</msg>
+<msg timestamp="20240507 07:16:42.224" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/author.py' contains no keywords.</msg>
+</errors>
+</robot>

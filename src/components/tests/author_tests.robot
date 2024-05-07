@@ -15,6 +15,19 @@ Testaa merkkijonoksi muuttaminen
     Should Be Equal As Strings    ${str}    Testi Henkilö
 
 Testaa apa-muotoinen merkkijono
-    ${testauthor}    Evaluate    author.Author("Testi Tutkija")
+    ${testauthor}    Evaluate    author.Author("Testi", "Tutkija")
     ${str}    Call Method    ${testauthor}    apastr
-    Should Be Equal As Strings    ${str}    Tutkija, T.
+    Should Be Equal As Strings    ${str}    Testi, T.
+
+    ${testiauthor}    Evaluate    author.Author("Sukunimi")
+    ${string}    Call Method    ${testiauthor}    apastr
+    Should Be Equal As Strings    ${string}    Sukunimi
+
+Testaa bibtex-muotoinen merkkijono
+    ${testauthor}    Evaluate    author.Author("Testaaja", "Yksi")
+    ${str}    Call Method    ${testauthor}    bibtexstr
+    Should Be Equal As Strings    ${str}    Testaaja, Yksi
+
+    ${testauthor}    Evaluate    author.Author("Testaaja")
+    ${str}    Call Method    ${testauthor}    bibtexstr
+    Should Be Equal As Strings    ${str}    Testaaja
