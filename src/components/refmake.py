@@ -15,7 +15,7 @@ def appArticle():
         print("Etunimi tai nimet (valinnainen):")
         firststr = input("> ")
         authlist.append(Author(laststr, firststr))
-    
+
     print("Syötä otsikko:")
     titlestr = input("> ")
     print("Syötä julkaisu:")
