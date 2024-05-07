@@ -1,3 +1,5 @@
+from .ref import Ref
+
 class References:
     def __init__(self):
         self.references = []
@@ -14,4 +16,7 @@ class References:
         return s
 
     def lisaaLahde(self, ref):
+        if not isinstance(ref, Ref):
+                return 0
         self.references.append(ref)
+        return 1
