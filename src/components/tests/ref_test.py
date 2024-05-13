@@ -11,6 +11,10 @@ class TestRef(unittest.TestCase):
         self.references = References()
         self.ref1 = Ref("article", "testarticle2020", [self.testauthor1, self.testauthor2], dict({"title": "Test Article", "journal": "Test Journal", "year": 2020}), ["userkey1", "userkey2"])
         self.ref2 = Ref("inproceedings", "testarticle2021", [self.testauthor1, self.testauthor2], dict({"title": "Test Inproc", "journal": "Test Journal", "year": 2021, "conference": "Test Conf"}), ["userkey1", "userkey2"])
+        
+        author = [Author("Test", "John"), Author("Tester", "Peter")]
+        bibdata = {"year": "2022", "title": "Example Title", "booktitle": "Example Book", "volume": "1", "pages": "1-10"}
+        self.ref3 = Ref(artype="article", bibtexkey="Doe2022", author=author, bibdata=bibdata, userkeys=[])
         #self.ref2 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2021", conf_name = "Test Conf", location = "Turku", organization = "Test Org", publisher = "Test Publisher")
 
 
@@ -40,9 +44,19 @@ class TestRef(unittest.TestCase):
         self.references.lisaaLahde(self.ref2)
         self.assertEqual(self.references.toString(), str(self.ref1)+"\n\n"+str(self.ref2))
 
+    """
+    Avainsana on käytössä testaus
+    """
     def test_is_key_taken(self):
         self.references.lisaaLahde(self.ref1)
         bool1 = self.references.is_key_taken("testarticle2020")
         self.assertEqual(bool1, True)
         bool2 = self.references.is_key_taken("testausartikkeli2020")
         self.assertEqual(bool2, False)
+
+    """
+    APA-testaus
+    """
+    def test_apa_str(self):
+        expected_output = "Test, J., & Tester, P. (2022). Example Title, Example Book, 1, 1-10."
+        self.assertEqual(self.ref3.apastr(), expected_output)
