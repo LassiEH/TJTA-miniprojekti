@@ -5,7 +5,7 @@ from .author import Author
 #def mkArticle(bibkey, title, journal, year, vol, authlist)
 
 #TODO: Hyödynnä tässä dependency injectionia
-def appArticle(references : References):
+def appArticle(references : References, ref_type: str):
     print("Syötä kirjoittajat:")
     authlist = []
     while True:
@@ -18,8 +18,6 @@ def appArticle(references : References):
         authlist.append(Author(laststr, firststr))
     print("Syötä otsikko:")
     titlestr = input("> ")
-    print("Syötä julkaisu:")
-    jourstr = input("> ")
     print("Syötä vuosi:")
     yearstr = input("> ")
     print("Syötä osa (volume):")
@@ -42,4 +40,21 @@ def appArticle(references : References):
     # Jos käyttäjä ei anna sopivaa syötettä, usrkeylistin arvoksi tulee tyhjä.
     else:
         usrkeylist = ""
-    return Ref(authlist, titlestr, jourstr, yearstr, volstr, pagestr, usrkeylist, keystr)
+
+    if ref_type == "article":
+        print("Syötä julkaisu:")
+        jourstr = input("> ")
+        return Ref(authlist, titlestr, yearstr, volstr, pagestr, usrkeylist, keystr, journal = jourstr)
+    if ref_type == "inproceedings":
+        print("Syötä konferenssijulkaisun nimi:")
+        conf_name = input("> ")
+        print("Syötä sijainti:")
+        location = input("> ")
+        print("Syötä organisaatio:")
+        organization = input("> ")
+        print("Syötä julkaisija:")
+        publisher = input("> ")
+        return Ref(authlist, titlestr, yearstr, volstr, pagestr, usrkeylist, keystr, conf_name=conf_name, location=location, organization=organization, publisher=publisher)
+    else:
+        print("Virheellinen viitetyyppi.")
+        return None

@@ -1,14 +1,15 @@
 class Ref:
-    def __init__(self, author, title, journal, year, volume, pages, userkeys, bibtexkey):
-        #TODO: Yleistä tämä luokka!
+    def __init__(self, author, title, year, volume, pages, userkeys, bibtexkey, **kwargs):
         self.bibtexkey = bibtexkey
-        self.author: list = author
+        self.author = author
         self.title = title
-        self.journal = journal
         self.year = year
+        self.userkeys: list = userkeys
         self.volume = volume
         self.pages = pages
-        self.userkeys: list = userkeys
+        # Käsitellään lisäparametreja, jotka voivat vaihdella eri viitetyypeille
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def __str__(self):
         s = ""
@@ -18,4 +19,20 @@ class Ref:
                 s += ", "
             else:
                 s += ". "
-        return s + self.title + ": " + self.journal + ", " +  str(self.volume) + ". " + str(self.pages) + ", " + str(self.year)
+        # Muodostetaan vuosi osa
+        year_str = f"({self.year}). "
+
+        # Muodostetaan otsikko osa
+        title_str = f"{self.title}. "
+
+        # Käsitellään eri viitetyypit
+        if hasattr(self, 'journal'):
+            # Artikkeli
+            journal_str = f"{self.journal}, {self.volume}: {self.pages}."
+            return s + year_str + title_str + journal_str
+        elif hasattr(self, 'conf_name'):
+            # inproceedigns
+            conf_str = f"{self.conf_name}, volume {self.volume}, pages {self.pages}, {self.location}, {self.organization}, {self.publisher}."
+            return s + year_str + title_str + conf_str
+        else:
+            return "Unsupported reference type"

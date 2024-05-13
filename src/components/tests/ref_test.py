@@ -9,7 +9,8 @@ class TestRef(unittest.TestCase):
         self.testauthor1 = Author("Author1")
         self.testauthor2 = Author("Author2")
         self.references = References()
-        self.ref1 = Ref([self.testauthor1, self.testauthor2], "Test Article", "Test Journal", 2020, 3, 5, ["userkey1", "userkey2"], "testarticle2020")
+        self.ref1 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2020", journal = "Test Journal")
+        self.ref2 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2020", conf_name = "Test Conf", location = "Turku", organization = "Test Org", publisher = "Test Publisher")
 
     def test_constructor(self):
         self.assertEqual([self.testauthor1, self.testauthor2], self.ref1.author)
@@ -17,17 +18,24 @@ class TestRef(unittest.TestCase):
         self.assertEqual("Test Journal", self.ref1.journal)
         self.assertEqual(2020, self.ref1.year)
         self.assertEqual(3, self.ref1.volume)
-        self.assertEqual(5, self.ref1.pages)
+        self.assertEqual("3-5", self.ref1.pages)
         self.assertEqual(["userkey1", "userkey2"], self.ref1.userkeys)
         self.assertEqual("testarticle2020", self.ref1.bibtexkey)
+        self.assertEqual("Test Conf", self.ref2.conf_name)
+        self.assertEqual("Turku", self.ref2.location)
+        self.assertEqual("Test Org", self.ref2.organization)
+        self.assertEqual("Test Publisher", self.ref2.publisher)
+
 
     def test_string_representation(self):
-        expected_output = "Author1, Author2. Test Article: Test Journal, 3. 5, 2020"
-        self.assertEqual(expected_output, str(self.ref1))
+        expected_output1 = "Author1, Author2. (2020). Test Article. Test Journal, 3: 3-5."
+        self.assertEqual(expected_output1, str(self.ref1))
+        expected_output2 = "Author1, Author2. (2020). Test Article. Test Conf, volume 3, pages 3-5, Turku, Test Org, Test Publisher."
+        self.assertEqual(expected_output2, str(self.ref2))
     
     def test_references_toString(self):
         self.assertEqual(self.references.toString(), "Lähteitä ei ole.")
-        self.references.lisaaLahde(Ref([Author("Author3"), Author("Author4")], "Test Article", "Test Journal", 2021, 4, 6, ["userkey1", "userkey3"], "testarticle2021"))
-        self.assertEqual(self.references.toString(), "Author3, Author4. Test Article: Test Journal, 4. 6, 2021")
         self.references.lisaaLahde(self.ref1)
-        self.assertEqual(self.references.toString(), "Author3, Author4. Test Article: Test Journal, 4. 6, 2021"+"\n\n"+"Author1, Author2. Test Article: Test Journal, 3. 5, 2020")
+        self.assertEqual(self.references.toString(), str(self.ref1))
+        self.references.lisaaLahde(self.ref2)
+        self.assertEqual(self.references.toString(), str(self.ref1)+"\n\n"+str(self.ref2))

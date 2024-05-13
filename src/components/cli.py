@@ -42,8 +42,14 @@ class Cli:
             esim. kysyy inputteja 
             toteutetaan oliona lähteen lisäys tiedostoon
         """
-        ref = appArticle(self.references)
-        self.references.lisaaLahde(ref)
+        
+        print("Syötä viitteen tyyppi (article tai inproceedings)")
+        reftype = input("> ")
+        if reftype in ["article", "inproceedings"]:
+            ref = appArticle(self.references, reftype)
+            self.references.lisaaLahde(ref)
+        else:
+            print("Ei toteutettu lisäystä ", reftype)
 
     def tulosta_lahde(self):
         """
