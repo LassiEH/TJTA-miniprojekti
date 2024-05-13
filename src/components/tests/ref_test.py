@@ -10,7 +10,8 @@ class TestRef(unittest.TestCase):
         self.testauthor2 = Author("Author2")
         self.references = References()
         self.ref1 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2020", journal = "Test Journal")
-        self.ref2 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2020", conf_name = "Test Conf", location = "Turku", organization = "Test Org", publisher = "Test Publisher")
+        self.ref2 = Ref([self.testauthor1, self.testauthor2], "Test Article", 2020, 3, "3-5", ["userkey1", "userkey2"], "testarticle2021", conf_name = "Test Conf", location = "Turku", organization = "Test Org", publisher = "Test Publisher")
+
 
     def test_constructor(self):
         self.assertEqual([self.testauthor1, self.testauthor2], self.ref1.author)
@@ -39,3 +40,10 @@ class TestRef(unittest.TestCase):
         self.assertEqual(self.references.toString(), str(self.ref1))
         self.references.lisaaLahde(self.ref2)
         self.assertEqual(self.references.toString(), str(self.ref1)+"\n\n"+str(self.ref2))
+
+    def test_is_key_taken(self):
+        self.references.lisaaLahde(self.ref1)
+        bool1 = self.references.is_key_taken("testarticle2020")
+        self.assertEqual(bool1, True)
+        bool2 = self.references.is_key_taken("testausartikkeli2020")
+        self.assertEqual(bool2, False)
