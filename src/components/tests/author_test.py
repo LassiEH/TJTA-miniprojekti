@@ -31,3 +31,15 @@ class TestAuthor(unittest.TestCase):
         self.assertEqual(self.testauth.bibtexstr(), "Virtanen, Matti")
         self.assertEqual(self.testauthwofn.bibtexstr(), "Jokinen")
         self.assertEqual(self.testauthwmfn.bibtexstr(), "Nieminen, Teppo Seppo")
+
+    def test_list_single_name(self):
+        obj = Author("Heikkinen", "Testi")
+        self.assertEqual(obj.list_first_names(), ["Testi"])
+
+    def test_list_multiple_names(self):
+        obj = Author("Heikkinen", "Testi Ukko")
+        self.assertEqual(obj.list_first_names(), ["Testi", "Ukko"])
+
+    def test_list_empty_names(self):
+        obj = Author(lastname= "Heikkinen", firstname="")
+        self.assertEqual(obj.list_first_names(), [])
