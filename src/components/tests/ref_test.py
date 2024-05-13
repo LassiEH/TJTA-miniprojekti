@@ -28,9 +28,9 @@ class TestRef(unittest.TestCase):
 
     #TODO: Määrittele APA-tulostusformaatti ja kehitä testit APA-tulostukselle
     def test_string_representation(self):
-        expected_output1 = "Author1, Author2. (2020). Test Article. Test Journal, 3: 3-5."
+        expected_output1 = "article (testarticle2020)\nAuthor1, Author2 Firstname. \ntitle: Test Article\njournal: Test Journal\nyear: 2020\n"
         self.assertEqual(expected_output1, str(self.ref1))
-        expected_output2 = "Author1, Author2 Firstname. (2020). Test Article. Test Conf, volume 3, pages 3-5, Turku, Test Org, Test Publisher."
+        expected_output2 = "inproceedings (testarticle2021)\nAuthor1, Author2 Firstname. \ntitle: Test Inproc\njournal: Test Journal\nyear: 2021\nconference: Test Conf\n"
         self.assertEqual(expected_output2, str(self.ref2))
     
     def test_references_toString(self):
