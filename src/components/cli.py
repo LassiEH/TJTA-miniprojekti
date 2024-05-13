@@ -45,18 +45,25 @@ class Cli:
         
         print("Syötä viitteen tyyppi (article tai inproceedings)")
         reftype = input("> ")
-        if reftype in ["article", "inproceedings"]:
-            ref = appArticle(self.references, reftype)
+        ref = ref_query(self.references, reftype)
+        if not ref is None:
             self.references.lisaaLahde(ref)
-        else:
-            print("Ei toteutettu lisäystä ", reftype)
 
     def tulosta_lahde(self):
         """
             Funktio, jolla tulostetaan lähteet terminaaliin
         """
-
-        print("\n"+ self.references.toString() + "\n") #TODO: paranneltu tulostaminen
+        print("Valitse tulostusmuoto:")
+        print("Näytä lähteet ja BibTex-tietueet [1]")
+        print("Näytä lähteet APA-formaatissa [2]")
+        i = input()
+        match i:
+            case "1":
+                print("\n"+ self.references.toString() + "\n") #TODO: paranneltu tulostaminen
+            case "2":
+                print("\n"+ self.references.apastr() + "\n")
+            case _:
+                print("\n")
 
     def tulosta_ohje(self):
         """

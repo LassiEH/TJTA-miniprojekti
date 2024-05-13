@@ -2,28 +2,36 @@ from .ref import Ref
 from .references import References
 from .author import Author
 
-#def mkArticle(bibkey, title, journal, year, vol, authlist)
+#TODO: Harkitse templatejen siirtämistä toisaalle
+#Template -luokan avulla templateihin voisi lisätä kentille erilliset suomenkieliset nimet,
+#helposti laajennettavia regex-tarkistuksia ja erityisiä tulostusformatoijia
+templates = dict({
+"article": ["title", "journal", "year", "volume", "pages"],
+"inproceedings": ["title", "booktitle", "year", "volume", "pages", "publisher"]
+})
 
-#TODO: Hyödynnä tässä dependency injectionia
-def appArticle(references : References, ref_type: str):
+def ref_query(references : References, ref_type: str):
+    if not templates.get(ref_type, ""):
+        print("Virheellinen viitetyyppi.")
+        return None
+
+    bibdata = {}
+
     print("Syötä kirjoittajat:")
     authlist = []
     while True:
-        print("Sukunimi (jätä tyhjäksi lopettaaksesi):")
+        print("Sukunimi \033[34m(jätä tyhjäksi lopettaaksesi)\033[0m:")
         laststr = input("> ")
         if not laststr:
             break
         print("Etunimi tai nimet (valinnainen):")
         firststr = input("> ")
         authlist.append(Author(laststr, firststr))
-    print("Syötä otsikko:")
-    titlestr = input("> ")
-    print("Syötä vuosi:")
-    yearstr = input("> ")
-    print("Syötä osa (volume):")
-    volstr = input("> ")
-    print("Syötä sivut viivalla eroteltuna:")
-    pagestr = input("> ")
+    
+    for i, field in enumerate(templates.get(ref_type)):
+        print(f"Syötä {field}:")
+        bibdata[field] = input("> ").strip()
+    
     keystr = ""
     while True:
         print("Syötä tunniste:")
@@ -41,20 +49,4 @@ def appArticle(references : References, ref_type: str):
     else:
         usrkeylist = ""
 
-    if ref_type == "article":
-        print("Syötä julkaisu:")
-        jourstr = input("> ")
-        return Ref(authlist, titlestr, yearstr, volstr, pagestr, usrkeylist, keystr, journal = jourstr)
-    if ref_type == "inproceedings":
-        print("Syötä konferenssijulkaisun nimi:")
-        conf_name = input("> ")
-        print("Syötä sijainti:")
-        location = input("> ")
-        print("Syötä organisaatio:")
-        organization = input("> ")
-        print("Syötä julkaisija:")
-        publisher = input("> ")
-        return Ref(authlist, titlestr, yearstr, volstr, pagestr, usrkeylist, keystr, conf_name=conf_name, location=location, organization=organization, publisher=publisher)
-    else:
-        print("Virheellinen viitetyyppi.")
-        return None
+    return Ref(ref_type, keystr, authlist, bibdata, usrkeylist)
