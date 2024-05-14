@@ -7,6 +7,8 @@ class Cli:
 
     def __init__(self, lahteet):
         self.references = lahteet
+        References.read_toml_file(self)
+
 
 
     def aloitus(self):

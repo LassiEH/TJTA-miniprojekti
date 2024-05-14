@@ -59,4 +59,20 @@ class References:
         with open("references.toml", "r", encoding="utf-8") as file:
             data = toml.load(file)
 
+        if data.len() > 0:    
+            for entry_id, entry_info in data.items():
+                bibdata = {}
+                bibtexkey = entry_id
+                for key in entry_info:
+                    if key == "authors": authlist = entry_info["authors"]
+                    elif key == "artype": artype = entry_info["artype"]
+                    elif key == "userkeys": userkeys = entry_info["userkeys"]
+                    else: bibdata[key] = entry_info[key]
+                
+                print(bibtexkey)
+                print(artype)
+                print(authlist)
+                print(userkeys)
+                print(bibdata)
+
         #TODO luo ref olioita datasta 
