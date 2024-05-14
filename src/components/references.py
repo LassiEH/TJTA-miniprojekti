@@ -64,9 +64,9 @@ class References:
     def generate_toml_str(self):
         if len(self.references) == 0:
             return ""
-        toml_string = "Ei tee vielä mitään"
+        toml_string = ""
         for i in self.references:
-            toml_string += i.bibtexstr()
+            toml_string += i.ref_generate_toml_str()
         return toml_string
 
     def generate_bib_str(self):
