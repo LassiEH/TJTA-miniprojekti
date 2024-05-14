@@ -1,4 +1,5 @@
 from .author import Author
+import toml
 
 class Ref:
     def __init__(self, artype, bibtexkey, author: list, bibdata: dict, userkeys: list):
@@ -65,3 +66,16 @@ class Ref:
         #    return s + year_str + title_str + conf_str
         #else:
         #    return "Unsupported reference type"
+
+    def ref_generate_toml_str(self):
+        toml_str = ""
+        toml_str += "[" + str(self.bibtexkey) + "]\n"
+        toml_str += "artype = \"" + str(self.artype) + "\"\n"
+        author_str = []
+        for i in self.author:
+            author_str.append(str(i))
+        toml_str += toml.dumps({"authors" : author_str})
+        toml_str += toml.dumps({"userkeys" : self.userkeys})
+        toml_str += toml.dumps(self.bibdata)
+        toml_str += "\n"
+        return toml_str

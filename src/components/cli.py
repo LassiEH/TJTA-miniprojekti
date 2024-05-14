@@ -19,7 +19,8 @@ class Cli:
         print("Tulosta lähteet [2]")
         print("Generoi BibTeX-tiedosto [3]")
         print("Ohje [4]")
-        print("Lopeta [5]")
+        print("Tallenna [5]")
+        print("Lopeta [6]")
         while True:
             i = input()
             match i:
@@ -33,6 +34,8 @@ class Cli:
                     return 4
                 case "5":
                     return 5
+                case "6":
+                    return 6
                 case _:
                     continue
 
@@ -82,14 +85,18 @@ class Cli:
         print(s + "\n")
         s = "Syöttämällä \"4\" käyttäjä pystyy tulostamaan ohjeet."
         print(s + "\n")
-        s = "Syöttämällä \"5\" käyttäjä pystyy lopettamaan ohjelman."
+        s = "Syöttämällä \"5\" käyttäjäjä pystyy tallentamaan lähteet."
+        print(s + "\n")
+        s = "Syöttämällä \"6\" käyttäjä pystyy lopettamaan ohjelman."
         print(s + "\n")
 
     def generoi_tiedosto(self):
         """
             Funktio, joka generoi tiedoston
         """
-        print("Ei ole toteutettu" + "\n")
+        toml_string = self.references.generate_toml_str()
+        self.references.generate_toml_file(toml_string)
+
     def kaynnista(self):
         """
             Funktio, jolla käynnistetään ohjelma
@@ -105,5 +112,7 @@ class Cli:
             if vastaus == 4:
                 self.tulosta_ohje()
             if vastaus == 5:
+                self.generoi_tiedosto()
+            if vastaus == 6:
                 print("Kiitos ohjelman käytöstä")
                 return
