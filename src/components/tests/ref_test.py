@@ -9,6 +9,7 @@ class TestRef(unittest.TestCase):
         self.testauthor1 = Author("Author1")
         self.testauthor2 = Author("Author2", "Firstname")
         self.references = References()
+        self.references.remove_ref("*")
         self.ref1 = Ref("article", "testarticle2020", [self.testauthor1, self.testauthor2], dict({"title": "Test Article", "journal": "Test Journal", "year": 2020}), ["userkey1", "userkey2"])
         self.ref2 = Ref("inproceedings", "testarticle2021", [self.testauthor1, self.testauthor2], dict({"title": "Test Inproc", "journal": "Test Journal", "year": 2021, "conference": "Test Conf"}), ["userkey1", "userkey2"])
         
@@ -60,3 +61,13 @@ class TestRef(unittest.TestCase):
     def test_apa_str(self):
         expected_output = "Test, J., & Tester, P. (2022). Example Title, Example Book, 1, 1-10."
         self.assertEqual(self.ref3.apastr(), expected_output)
+
+    """
+    remove_ref-testaus
+    """
+    def test_remove_ref(self):
+        self.references.lisaaLahde(self.ref1)
+        self.references.lisaaLahde(self.ref2)
+        self.references.remove_ref("testarticle2020")        
+        self.assertEqual(self.references.toString(), str(self.ref2))
+

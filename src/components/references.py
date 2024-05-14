@@ -8,6 +8,7 @@ class References:
         self.references = []
         self.read_toml_file()
 
+
     #TODO: Korjaa java-tyyliset funktiokutsut snake_case:ksi ja tämä sisäänrakennettuun __str__-muotoon
     def toString(self):
         s = ""
@@ -39,6 +40,21 @@ class References:
         self.references.append(ref)
         return 1
 
+    #Metodi, joka poistaa references-taulukosta referenssin annetulla bibtexkey:llä
+    # *-merkillä saa poistettua kaikki
+    # palauttaa 2, jos kaikki poistetaan, 1 jos on poistettu referenssi käyttäjän antamalla bibtexkey:llä
+    # palauttaa 0, jos annetulla bibtexkey:llä ei löytynyt referenssiä
+    def remove_ref(self, bibtexkey):
+        if bibtexkey == "*":
+            self.references.clear()
+            return 2
+        for ref in self.references:
+            if ref.bibtexkey == bibtexkey:
+                self.references.remove(ref)
+                return 1
+        return 0
+
+    
     def is_key_taken(self, bibtexkey):
         for r in self.references:
             if bibtexkey == r.bibtexkey:
