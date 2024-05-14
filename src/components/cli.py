@@ -7,8 +7,6 @@ class Cli:
 
     def __init__(self, lahteet):
         self.references = lahteet
-        References.read_toml_file(self)
-
 
 
     def aloitus(self):
@@ -98,6 +96,13 @@ class Cli:
         """
         toml_string = self.references.generate_toml_str()
         self.references.generate_toml_file(toml_string)
+
+    def generoi_bib_tiedosto(self):
+        """
+            Funktio, joka generoi bib-tiedoston
+        """
+        bib_string = self.references.generate_bib_str()
+        self.references.generate_bib_file(bib_string)
 
     def kaynnista(self):
         """
