@@ -1,4 +1,5 @@
 from .ref import Ref
+from .author import Author
 import toml
 import os.path
 
@@ -57,6 +58,7 @@ class References:
             file.write(toml_string)
 
     def read_toml_file(self):
+        #Tarkastaa onko tiedosto olemassa ja luo sellaisen jos ei ole.
         if not os.path.isfile('./references.toml'):
             file = open('references.toml', 'w')
             file.close()
@@ -64,9 +66,13 @@ class References:
         with open("references.toml", "r", encoding="utf-8") as file:
             data = toml.load(file)
 
-        if len(data) > 0:    
+        #Viitteitä ei tuoda data-dictionary on tyhjä.
+        #TODO: Voisi olla omana moduulinaan koodin selkeyttämiseksi.
+        if len(data) > 0:
+            #Iteroi jokaisen viitteen läpi ja hakee niistä tiedot.    
             for entry_id, entry_info in data.items():
                 bibdata = {}
+                authorlist = []
                 bibtexkey = entry_id
                 for key in entry_info:
                     if key == "authors": authlist = entry_info["authors"]
@@ -74,10 +80,10 @@ class References:
                     elif key == "userkeys": userkeys = entry_info["userkeys"]
                     else: bibdata[key] = entry_info[key]
                 
-                print(bibtexkey)
-                print(artype)
-                print(authlist)
-                print(userkeys)
-                print(bibdata)
+                for author in authlist:
+                    if ' ' in author: #Tarkastaa, onko välilyönejä ts onko myös etunimi olemassa.
+                        lastname, firstname = author.split(' ', 1)
+                        authorlist.append(Author(lastname.strip(), firstname.strip())) #Poistetaan leading ja trailing whitespace
+                    else: authorlist.append(Author(author))
 
-        #TODO luo ref olioita datasta 
+                self.references.lisaaLahde(Ref(artype, bibtexkey, authorlist, bibdata, userkeys))

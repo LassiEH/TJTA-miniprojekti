@@ -1,0 +1,21 @@
+[bibtextunnus1]
+artype = "article"
+authors = [ "Miettunen Matti Pekka", "Perttinen Antti",]
+userkeys = [ "tärkeä",]
+title = "Ketterän kehityksen menetelmät"
+journal = "Information Sciences"
+year = "2023"
+volume = "15"
+pages = "23-37"
+
+[bibtextunnus2]
+artype = "inproceedings"
+authors = [ "Jokela Anna-Liisa", "Tossavainen",]
+userkeys = [ "symposium",]
+title = "Python ja Bibtex"
+booktitle = "Kuhmon Informaatiotieteiden Symposium XIV"
+year = "2015"
+volume = "1"
+pages = "12-14"
+publisher = "Kuhmon Yliopisto"
+
