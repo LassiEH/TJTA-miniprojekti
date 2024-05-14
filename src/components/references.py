@@ -1,5 +1,6 @@
 from .ref import Ref
 import toml
+import os.path
 
 class References:
     def __init__(self):
@@ -56,10 +57,14 @@ class References:
             file.write(toml_string)
 
     def read_toml_file(self):
+        if not os.path.isfile('./references.toml'):
+            file = open('references.toml', 'w')
+            file.close()
+        
         with open("references.toml", "r", encoding="utf-8") as file:
             data = toml.load(file)
 
-        if data.len() > 0:    
+        if len(data) > 0:    
             for entry_id, entry_info in data.items():
                 bibdata = {}
                 bibtexkey = entry_id
