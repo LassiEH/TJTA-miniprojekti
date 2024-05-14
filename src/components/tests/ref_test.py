@@ -70,4 +70,7 @@ class TestRef(unittest.TestCase):
         self.references.lisaaLahde(self.ref2)
         self.references.remove_ref("testarticle2020")        
         self.assertEqual(self.references.toString(), str(self.ref2))
+        self.references.lisaaLahde(self.ref1)
+        self.references.remove_ref("*")
+        self.assertEqual(self.references.toString(), "Lähteitä ei ole.")
 
