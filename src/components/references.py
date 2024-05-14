@@ -6,7 +6,7 @@ import os.path
 class References:
     def __init__(self):
         self.references = []
-        #TODO lisaa read_toml_file methodi
+        self.read_toml_file()
 
     #TODO: Korjaa java-tyyliset funktiokutsut snake_case:ksi ja tämä sisäänrakennettuun __str__-muotoon
     def toString(self):
@@ -48,15 +48,27 @@ class References:
     def generate_toml_str(self):
         if len(self.references) == 0:
             return ""
-        toml_string = ""
+        toml_string = "Ei tee vielä mitään"
         for i in self.references:
-            toml_string += i.ref_generate_toml_str()
+            toml_string += i.bibtexstr()
         return toml_string
 
+    def generate_bib_str(self):
+        if len(self.references) == 0:
+            return ""
+        bib_string = ""
+        for i in self.references:
+            bib_string += i.ref_generate_bib_str()
+        return bib_string
+    
     def generate_toml_file(self, toml_string):
         with open("references.toml", "w", encoding="utf-8") as file:
             file.write(toml_string)
 
+    def generate_bibtex_file(self, bibtex_string):
+        with open("references.bib", "w", encoding="utf-8") as file:
+            file.write(bibtex_string)
+    
     def read_toml_file(self):
         #Tarkastaa onko tiedosto olemassa ja luo sellaisen jos ei ole.
         if not os.path.isfile('./references.toml'):
@@ -66,7 +78,7 @@ class References:
         with open("references.toml", "r", encoding="utf-8") as file:
             data = toml.load(file)
 
-        #Viitteitä ei tuoda data-dictionary on tyhjä.
+        #Viitteitä ei tuoda jos data-dictionary on tyhjä.
         #TODO: Voisi olla omana moduulinaan koodin selkeyttämiseksi.
         if len(data) > 0:
             #Iteroi jokaisen viitteen läpi ja hakee niistä tiedot.    
@@ -86,4 +98,4 @@ class References:
                         authorlist.append(Author(lastname.strip(), firstname.strip())) #Poistetaan leading ja trailing whitespace
                     else: authorlist.append(Author(author))
 
-                self.references.lisaaLahde(Ref(artype, bibtexkey, authorlist, bibdata, userkeys))
+                self.lisaaLahde(Ref(artype, bibtexkey, authorlist, bibdata, userkeys))
