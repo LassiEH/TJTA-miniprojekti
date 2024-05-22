@@ -9,6 +9,12 @@ class References:
         self.read_toml_file()
 
 
+    def get_references_ids(self) -> list:
+        ids = []
+        for ref in self.references:
+            ids.append(ref.bibtexkey)
+        return ids
+
     #TODO: Korjaa java-tyyliset funktiokutsut snake_case:ksi ja tämä sisäänrakennettuun __str__-muotoon
     def toString(self):
         s = ""
