@@ -31,7 +31,6 @@ class TestRef(unittest.TestCase):
         #self.assertEqual("Test Org", self.ref2.organization)
         #self.assertEqual("Test Publisher", self.ref2.publisher)
 
-    #TODO: Määrittele APA-tulostusformaatti ja kehitä testit APA-tulostukselle
     def test_string_representation(self):
         expected_output1 = "article (testarticle2020)\nAuthor1, Author2 Firstname. \ntitle: Test Article\njournal: Test Journal\nyear: 2020\n"
         self.assertEqual(expected_output1, str(self.ref1))
@@ -39,11 +38,11 @@ class TestRef(unittest.TestCase):
         self.assertEqual(expected_output2, str(self.ref2))
     
     def test_references_toString(self):
-        self.assertEqual(self.references.toString(), "Lähteitä ei ole.")
+        self.assertEqual(str(self.references), "Lähteitä ei ole.")
         self.references.lisaaLahde(self.ref1)
-        self.assertEqual(self.references.toString(), str(self.ref1))
+        self.assertEqual(str(self.references), str(self.ref1))
         self.references.lisaaLahde(self.ref2)
-        self.assertEqual(self.references.toString(), str(self.ref1)+"\n\n"+str(self.ref2))
+        self.assertEqual(str(self.references), str(self.ref1)+"\n\n"+str(self.ref2))
 
     """
     Avainsana on käytössä testaus
@@ -63,14 +62,21 @@ class TestRef(unittest.TestCase):
         self.assertEqual(self.ref3.apastr(), expected_output)
 
     """
+    BibTex-merkkijonon testaus
+    """
+    def test_bibtex_str(self):
+        expected_output = "@article{testarticle2020,\n  author={Author1 and Author2, Firstname},\n  title={Test Article},\n  journal={Test Journal},\n  year={2020}\n}"
+        self.assertEqual(self.ref1.bibtexstr(), expected_output)
+
+    """
     remove_ref-testaus
     """
     def test_remove_ref(self):
         self.references.lisaaLahde(self.ref1)
         self.references.lisaaLahde(self.ref2)
         self.references.remove_ref("testarticle2020")        
-        self.assertEqual(self.references.toString(), str(self.ref2))
+        self.assertEqual(str(self.references), str(self.ref2))
         self.references.lisaaLahde(self.ref1)
         self.references.remove_ref("*")
-        self.assertEqual(self.references.toString(), "Lähteitä ei ole.")
+        self.assertEqual(str(self.references), "Lähteitä ei ole.")
 

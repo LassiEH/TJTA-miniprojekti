@@ -1,7 +1,7 @@
+import os.path
+import toml
 from .ref import Ref
 from .author import Author
-import toml
-import os.path
 
 class References:
     def __init__(self):
@@ -15,29 +15,25 @@ class References:
             ids.append(ref.bibtexkey)
         return ids
 
-    #TODO: Korjaa java-tyyliset funktiokutsut snake_case:ksi ja tämä sisäänrakennettuun __str__-muotoon
-    def toString(self):
+    def stringify(self, fnc):
         s = ""
         if len(self.references) == 0:
             return "Lähteitä ei ole."
         for i, ref in enumerate(self.references):
             if i < len(self.references)-1:
-                s += str(ref) +"\n\n"
+                s += fnc(ref) +"\n\n"
             else:
-                s += str(ref)
+                s += fnc(ref)
         return s
+
+    def __str__(self):
+        return self.stringify(lambda Ref: str(Ref))
     
-    #TODO: vältä toistoa
     def apastr(self):
-        s = ""
-        if len(self.references) == 0:
-            return "Lähteitä ei ole."
-        for i, ref in enumerate(self.references):
-            if i < len(self.references)-1:
-                s += ref.apastr() +"\n\n"
-            else:
-                s += ref.apastr()
-        return s
+        return self.stringify(lambda Ref: Ref.apastr())
+    
+    def bibtexstr(self):
+        return self.stringify(lambda Ref: Ref.bibtexstr())
 
     #TODO: Käytä hyväsksi is_key_taken metodia ja älä salli saman key:n omaavien lisäystä
     def lisaaLahde(self, ref):

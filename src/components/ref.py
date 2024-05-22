@@ -1,5 +1,5 @@
-from .author import Author
 import toml
+from .author import Author
 
 class Ref:
     def __init__(self, artype, bibtexkey, author: list, bibdata: dict, userkeys: list):
@@ -47,25 +47,21 @@ class Ref:
         s += f"{self.bibdata.get("volume", "")}, "
         
         s += f"{self.bibdata.get("pages", "")}."
-        
-        return s
-    
-    # BibTex tynkä
-    def bibtexstr(self):
-        pass
-        
 
-        # Käsitellään eri viitetyypit
-        #if hasattr(self, 'journal'):
-            # Artikkeli
-        #    journal_str = f"{self.journal}, {self.volume}: {self.pages}."
-        #    return s + year_str + title_str + journal_str
-        #elif hasattr(self, 'conf_name'):
-            # inproceedigns
-        #    conf_str = f"{self.conf_name}, volume {self.volume}, pages {self.pages}, {self.location}, {self.organization}, {self.publisher}."
-        #    return s + year_str + title_str + conf_str
-        #else:
-        #    return "Unsupported reference type"
+        return s
+
+    def bibtexstr(self):
+        s = f"@{self.artype}{{{self.bibtexkey},\n  author={{"
+        for i, auth in enumerate(self.author):
+            s += auth.bibtexstr()
+            if (i < len(self.author) - 1):
+                s += " and "
+        s += "}"
+        for i, (key, value) in enumerate(self.bibdata.items()):
+            s += f",\n  {key}={{{value}}}"
+        s += "\n}"
+
+        return s
 
     def ref_generate_toml_str(self):
         toml_str = ""

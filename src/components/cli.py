@@ -1,4 +1,4 @@
-from .refmake import *
+from .refmake import ref_query
 
 class Cli:
     """
@@ -25,7 +25,7 @@ class Cli:
             print("Tallenna [6]")
             print("Lopeta [7]")
             print()
-            i = input()
+            i = input("> ")
             match i:
                 case "1":
                     return 1
@@ -62,14 +62,17 @@ class Cli:
             Funktio, jolla tulostetaan lähteet terminaaliin
         """
         print("Valitse tulostusmuoto:")
-        print("Näytä lähteet ja BibTex-tietueet [1]")
+        print("Listaa lähteet ja niiden tiedot [1]")
         print("Näytä lähteet APA-formaatissa [2]")
-        i = input()
+        print("Näytä lähteet BibTex-formaatissa [3]")
+        i = input("> ")
         match i:
             case "1":
-                print("\n"+ self.references.toString() + "\n") #TODO: paranneltu tulostaminen
+                print("\n"+ str(self.references) + "\n")
             case "2":
                 print("\n"+ self.references.apastr() + "\n")
+            case "3":
+                print("\n"+ self.references.bibtexstr() + "\n")
             case _:
                 print("\n")
 
@@ -130,7 +133,7 @@ class Cli:
             print()
             print()
             print(" liiku alas [j]   liiku ylös [k]   poista lähde [d]  poistu [q]")
-            user_input = input()
+            user_input = input("> ")
             if (user_input == "q"):
 
                 return
@@ -148,7 +151,7 @@ class Cli:
                 print()
                 print("Halutatko poistaa ", ids[index] , "?")
                 print("[k]yllä [e]i")
-                user_input = input()
+                user_input = input("> ")
                 if (user_input == "k"):
                     self.references.remove_ref(ids[index])
                 if (user_input == "e"):
