@@ -25,6 +25,11 @@ class Ref:
         for i, (key, value) in enumerate(self.bibdata.items()):
             s += f"\n{key}: {value}"
         s += "\n"
+        for i, userkey in enumerate(self.userkeys):
+            s += userkey
+            if (i < len(self.userkeys) - 1):
+                s += ", "
+        s += "\n"
         
         return s
     

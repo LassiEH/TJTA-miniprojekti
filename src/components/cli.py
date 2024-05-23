@@ -15,7 +15,7 @@ class Cli:
         """
         while True:
             print()
-            print("OHTU ohjelma")
+            print("\033[7m Viitteenhallintaohjelma | JYU Ohjelmistotuotanto 2024 \033[0m")
             print("Valitse:")
             print("Lisää lähde [1]")
             print("Poista lähde [2]")
@@ -61,7 +61,7 @@ class Cli:
         """
             Funktio, jolla tulostetaan lähteet terminaaliin
         """
-        print("Valitse tulostusmuoto:")
+        print("\nValitse tulostusmuoto:")
         print("Listaa lähteet ja niiden tiedot [1]")
         print("Näytä lähteet APA-formaatissa [2]")
         print("Näytä lähteet BibTex-formaatissa [3]")

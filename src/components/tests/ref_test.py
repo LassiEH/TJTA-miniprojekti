@@ -32,9 +32,9 @@ class TestRef(unittest.TestCase):
         #self.assertEqual("Test Publisher", self.ref2.publisher)
 
     def test_string_representation(self):
-        expected_output1 = "article (testarticle2020)\nAuthor1, Author2 Firstname. \ntitle: Test Article\njournal: Test Journal\nyear: 2020\n"
+        expected_output1 = "article (testarticle2020)\nAuthor1, Author2 Firstname. \ntitle: Test Article\njournal: Test Journal\nyear: 2020\nuserkey1, userkey2\n"
         self.assertEqual(expected_output1, str(self.ref1))
-        expected_output2 = "inproceedings (testarticle2021)\nAuthor1, Author2 Firstname. \ntitle: Test Inproc\njournal: Test Journal\nyear: 2021\nconference: Test Conf\n"
+        expected_output2 = "inproceedings (testarticle2021)\nAuthor1, Author2 Firstname. \ntitle: Test Inproc\njournal: Test Journal\nyear: 2021\nconference: Test Conf\nuserkey1, userkey2\n"
         self.assertEqual(expected_output2, str(self.ref2))
     
     def test_references_string(self):
