@@ -18,6 +18,10 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+
+      - name: Run Robot Framework
+        run: poetry run robot src/components/tests/tests.robot
+        
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Create coverage report
