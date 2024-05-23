@@ -80,3 +80,14 @@ class TestRef(unittest.TestCase):
         self.references.remove_ref("*")
         self.assertEqual(str(self.references), "Lähteitä ei ole.")
 
+    """
+    generate_toml_str-testaus
+    """
+    def test_generate_toml_str(self):
+        expected_output = ""
+        tomlstr = self.references.generate_toml_str()
+        self.assertEqual(expected_output, tomlstr)
+        self.references.lisaaLahde(self.ref1)
+        expected_output2 = "[testarticle2020]\nartype = \"article\"\nauthors = [ \"Author1\", \"Author2 Firstname\",]\nuserkeys = [ \"userkey1\", \"userkey2\",]\ntitle = \"Test Article\"\njournal = \"Test Journal\"\nyear = 2020\n\n"
+        tomlstr2 = self.references.generate_toml_str()
+        self.assertEqual(expected_output2, tomlstr2)
