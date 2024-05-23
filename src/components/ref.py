@@ -30,7 +30,7 @@ class Ref:
     
     def apastr(self):
         s = ""
-        for i, auth in enumerate(self.author):
+        for i, auth in sorted(enumerate(self.author), key=str):
             s += auth.apastr()
             if (i < len(self.author) - 1):
                 s += ", & "

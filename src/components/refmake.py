@@ -20,7 +20,7 @@ def ref_query(references : References, ref_type: str):
     print("Syötä kirjoittajat:")
     authlist = []
     while True:
-        print("Sukunimi \033[34m(jätä tyhjäksi lopettaaksesi)\033[0m:")
+        print("Sukunimi \033[96m(jätä tyhjäksi lopettaaksesi)\033[0m:")
         laststr = input("> ")
         if not laststr:
             break

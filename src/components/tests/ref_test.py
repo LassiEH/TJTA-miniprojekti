@@ -37,7 +37,7 @@ class TestRef(unittest.TestCase):
         expected_output2 = "inproceedings (testarticle2021)\nAuthor1, Author2 Firstname. \ntitle: Test Inproc\njournal: Test Journal\nyear: 2021\nconference: Test Conf\n"
         self.assertEqual(expected_output2, str(self.ref2))
     
-    def test_references_toString(self):
+    def test_references_string(self):
         self.assertEqual(str(self.references), "Lähteitä ei ole.")
         self.references.lisaaLahde(self.ref1)
         self.assertEqual(str(self.references), str(self.ref1))

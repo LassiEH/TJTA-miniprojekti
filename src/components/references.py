@@ -27,7 +27,7 @@ class References:
         return s
 
     def __str__(self):
-        return self.stringify(lambda Ref: str(Ref))
+        return self.stringify(str)
     
     def apastr(self):
         return self.stringify(lambda Ref: Ref.apastr())
@@ -90,7 +90,7 @@ class References:
     def read_toml_file(self):
         #Tarkastaa onko tiedosto olemassa ja luo sellaisen jos ei ole.
         if not os.path.isfile('./references.toml'):
-            file = open('references.toml', 'w')
+            file = open('references.toml', 'w', encoding="utf-8")
             file.close()
         
         with open("references.toml", "r", encoding="utf-8") as file:
