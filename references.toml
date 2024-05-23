@@ -19,3 +19,24 @@ volume = "1"
 pages = "12-14"
 publisher = "Kuhmon Yliopisto"
 
+[22]
+artype = "article"
+authors = [ "Haarala",]
+userkeys = [ "ld",]
+title = "teks"
+journal = "ti"
+year = "ri"
+volume = "2"
+pages = "21-133"
+
+[s]
+artype = "inproceedings"
+authors = [ "le lea al", "lea  lee",]
+userkeys = [ "s",]
+title = "w"
+booktitle = "s"
+year = "s"
+volume = "s"
+pages = "s"
+publisher = "s"
+

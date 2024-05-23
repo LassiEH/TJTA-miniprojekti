@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Testitapaukset author-luokalle
-Resource    resource.robot
+Library    ../author.py
 
 Library    BuiltIn
 

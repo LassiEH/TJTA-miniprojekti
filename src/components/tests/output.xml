@@ -1,141 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240507 07:31:12.325" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240523 21:29:39.141" rpa="false" schemaversion="4">
 <suite id="s1" name="Author Tests" source="/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/tests/author_tests.robot">
 <test id="s1-t1" name="Testaa author-olion luonti" line="8">
 <kw name="Evaluate" library="BuiltIn">
 <var>${testauthor}</var>
 <arg>author.Author("Testi Hahmo")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.350" level="INFO">${testauthor} = Testi Hahmo</msg>
-<status status="PASS" starttime="20240507 07:31:12.350" endtime="20240507 07:31:12.350"/>
+<msg timestamp="20240523 21:29:39.162" level="INFO">${testauthor} = Testi Hahmo</msg>
+<status status="PASS" starttime="20240523 21:29:39.162" endtime="20240523 21:29:39.162"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${testauthor}</arg>
 <arg>Testi Hahmo</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20240507 07:31:12.351" level="INFO">Argument types are:
+<msg timestamp="20240523 21:29:39.163" level="INFO">Argument types are:
 &lt;class 'author.Author'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20240507 07:31:12.351" endtime="20240507 07:31:12.351"/>
+<status status="PASS" starttime="20240523 21:29:39.162" endtime="20240523 21:29:39.163"/>
 </kw>
-<status status="PASS" starttime="20240507 07:31:12.350" endtime="20240507 07:31:12.351"/>
+<status status="PASS" starttime="20240523 21:29:39.162" endtime="20240523 21:29:39.163"/>
 </test>
 <test id="s1-t2" name="Testaa merkkijonoksi muuttaminen" line="12">
 <kw name="Evaluate" library="BuiltIn">
 <var>${testauthor}</var>
 <arg>author.Author("Testi Henkilö")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.352" level="INFO">${testauthor} = Testi Henkilö</msg>
-<status status="PASS" starttime="20240507 07:31:12.352" endtime="20240507 07:31:12.352"/>
+<msg timestamp="20240523 21:29:39.164" level="INFO">${testauthor} = Testi Henkilö</msg>
+<status status="PASS" starttime="20240523 21:29:39.163" endtime="20240523 21:29:39.164"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <var>${str}</var>
 <arg>${testauthor}</arg>
 <arg>__str__</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:31:12.352" level="INFO">${str} = Testi Henkilö</msg>
-<status status="PASS" starttime="20240507 07:31:12.352" endtime="20240507 07:31:12.352"/>
+<msg timestamp="20240523 21:29:39.164" level="INFO">${str} = Testi Henkilö</msg>
+<status status="PASS" starttime="20240523 21:29:39.164" endtime="20240523 21:29:39.164"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${str}</arg>
 <arg>Testi Henkilö</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:31:12.352" endtime="20240507 07:31:12.353"/>
+<status status="PASS" starttime="20240523 21:29:39.164" endtime="20240523 21:29:39.164"/>
 </kw>
-<status status="PASS" starttime="20240507 07:31:12.351" endtime="20240507 07:31:12.353"/>
+<status status="PASS" starttime="20240523 21:29:39.163" endtime="20240523 21:29:39.164"/>
 </test>
 <test id="s1-t3" name="Testaa apa-muotoinen merkkijono" line="17">
 <kw name="Evaluate" library="BuiltIn">
 <var>${testauthor}</var>
 <arg>author.Author("Testi", "Tutkija")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.354" level="INFO">${testauthor} = Testi Tutkija</msg>
-<status status="PASS" starttime="20240507 07:31:12.353" endtime="20240507 07:31:12.354"/>
+<msg timestamp="20240523 21:29:39.165" level="INFO">${testauthor} = Testi Tutkija</msg>
+<status status="PASS" starttime="20240523 21:29:39.165" endtime="20240523 21:29:39.165"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <var>${str}</var>
 <arg>${testauthor}</arg>
 <arg>apastr</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:31:12.354" level="INFO">${str} = Testi, T.</msg>
-<status status="PASS" starttime="20240507 07:31:12.354" endtime="20240507 07:31:12.354"/>
+<msg timestamp="20240523 21:29:39.165" level="INFO">${str} = Testi, T.</msg>
+<status status="PASS" starttime="20240523 21:29:39.165" endtime="20240523 21:29:39.165"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${str}</arg>
 <arg>Testi, T.</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:31:12.354" endtime="20240507 07:31:12.354"/>
+<status status="PASS" starttime="20240523 21:29:39.165" endtime="20240523 21:29:39.166"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${testiauthor}</var>
 <arg>author.Author("Sukunimi")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.355" level="INFO">${testiauthor} = Sukunimi</msg>
-<status status="PASS" starttime="20240507 07:31:12.354" endtime="20240507 07:31:12.355"/>
+<msg timestamp="20240523 21:29:39.166" level="INFO">${testiauthor} = Sukunimi</msg>
+<status status="PASS" starttime="20240523 21:29:39.166" endtime="20240523 21:29:39.166"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <var>${string}</var>
 <arg>${testiauthor}</arg>
 <arg>apastr</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:31:12.355" level="INFO">${string} = Sukunimi</msg>
-<status status="PASS" starttime="20240507 07:31:12.355" endtime="20240507 07:31:12.355"/>
+<msg timestamp="20240523 21:29:39.166" level="INFO">${string} = Sukunimi</msg>
+<status status="PASS" starttime="20240523 21:29:39.166" endtime="20240523 21:29:39.166"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${string}</arg>
 <arg>Sukunimi</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:31:12.355" endtime="20240507 07:31:12.355"/>
+<status status="PASS" starttime="20240523 21:29:39.166" endtime="20240523 21:29:39.167"/>
 </kw>
-<status status="PASS" starttime="20240507 07:31:12.353" endtime="20240507 07:31:12.355"/>
+<status status="PASS" starttime="20240523 21:29:39.164" endtime="20240523 21:29:39.167"/>
 </test>
 <test id="s1-t4" name="Testaa bibtex-muotoinen merkkijono" line="26">
 <kw name="Evaluate" library="BuiltIn">
 <var>${testauthor}</var>
 <arg>author.Author("Testaaja", "Yksi")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.356" level="INFO">${testauthor} = Testaaja Yksi</msg>
-<status status="PASS" starttime="20240507 07:31:12.356" endtime="20240507 07:31:12.356"/>
+<msg timestamp="20240523 21:29:39.167" level="INFO">${testauthor} = Testaaja Yksi</msg>
+<status status="PASS" starttime="20240523 21:29:39.167" endtime="20240523 21:29:39.167"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <var>${str}</var>
 <arg>${testauthor}</arg>
 <arg>bibtexstr</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:31:12.356" level="INFO">${str} = Testaaja, Yksi</msg>
-<status status="PASS" starttime="20240507 07:31:12.356" endtime="20240507 07:31:12.356"/>
+<msg timestamp="20240523 21:29:39.168" level="INFO">${str} = Testaaja, Yksi</msg>
+<status status="PASS" starttime="20240523 21:29:39.168" endtime="20240523 21:29:39.168"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${str}</arg>
 <arg>Testaaja, Yksi</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:31:12.356" endtime="20240507 07:31:12.357"/>
+<status status="PASS" starttime="20240523 21:29:39.168" endtime="20240523 21:29:39.168"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${testauthor}</var>
 <arg>author.Author("Testaaja")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:31:12.357" level="INFO">${testauthor} = Testaaja</msg>
-<status status="PASS" starttime="20240507 07:31:12.357" endtime="20240507 07:31:12.357"/>
+<msg timestamp="20240523 21:29:39.168" level="INFO">${testauthor} = Testaaja</msg>
+<status status="PASS" starttime="20240523 21:29:39.168" endtime="20240523 21:29:39.168"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <var>${str}</var>
 <arg>${testauthor}</arg>
 <arg>bibtexstr</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:31:12.357" level="INFO">${str} = Testaaja</msg>
-<status status="PASS" starttime="20240507 07:31:12.357" endtime="20240507 07:31:12.357"/>
+<msg timestamp="20240523 21:29:39.169" level="INFO">${str} = Testaaja</msg>
+<status status="PASS" starttime="20240523 21:29:39.169" endtime="20240523 21:29:39.169"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${str}</arg>
 <arg>Testaaja</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:31:12.358" endtime="20240507 07:31:12.358"/>
+<status status="PASS" starttime="20240523 21:29:39.169" endtime="20240523 21:29:39.169"/>
 </kw>
-<status status="PASS" starttime="20240507 07:31:12.356" endtime="20240507 07:31:12.358"/>
+<status status="PASS" starttime="20240523 21:29:39.167" endtime="20240523 21:29:39.169"/>
 </test>
 <doc>Testitapaukset author-luokalle</doc>
-<status status="PASS" starttime="20240507 07:31:12.326" endtime="20240507 07:31:12.358"/>
+<status status="PASS" starttime="20240523 21:29:39.142" endtime="20240523 21:29:39.170"/>
 </suite>
 <statistics>
 <total>
@@ -148,8 +148,6 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240507 07:31:12.348" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/ref.py' contains no keywords.</msg>
-<msg timestamp="20240507 07:31:12.348" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/references.py' contains no keywords.</msg>
-<msg timestamp="20240507 07:31:12.349" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/author.py' contains no keywords.</msg>
+<msg timestamp="20240523 21:29:39.161" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/author.py' contains no keywords.</msg>
 </errors>
 </robot>
