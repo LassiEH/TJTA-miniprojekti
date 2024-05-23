@@ -112,7 +112,7 @@ class Cli:
             Funktio, joka generoi bib-tiedoston
         """
         bib_string = self.references.generate_bib_str()
-        self.references.generate_bib_file(bib_string)
+        self.references.generate_bibtex_file(bib_string)
 
     def poista_lahde(self):
         index = 0
@@ -173,7 +173,7 @@ class Cli:
             if vastaus == 3:
                 self.tulosta_lahde()
             if vastaus == 4:
-                self.generoi_tiedosto()
+                self.generoi_bib_tiedosto()
             if vastaus == 5:
                 self.tulosta_ohje()
             if vastaus == 6:

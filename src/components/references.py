@@ -76,7 +76,7 @@ class References:
             return ""
         bib_string = ""
         for i in self.references:
-            bib_string += i.ref_generate_bib_str()
+            bib_string += i.bibtexstr() +"\n\n"
         return bib_string
     
     def generate_toml_file(self, toml_string):
