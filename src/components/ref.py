@@ -32,7 +32,7 @@ class Ref:
         s = ""
         for i, auth in sorted(enumerate(self.author), key=str):
             s += auth.apastr()
-            if (i < len(self.author) - 1):
+            if i < len(self.author) - 1:
                 s += ", & "
             else:
                 s += " "
@@ -40,13 +40,22 @@ class Ref:
         s += f"({self.bibdata.get("year", "n.d.")}). "
 
         # Muodostetaan otsikko osa
-        s += f"{self.bibdata.get("title", "")}, "
-        
-        s += f"{self.bibdata.get("booktitle", "")}, "
-        
-        s += f"{self.bibdata.get("volume", "")}, "
-        
-        s += f"{self.bibdata.get("pages", "")}."
+        s += f"{self.bibdata.get("title", "")}"
+
+        tempstr = f"{self.bibdata.get("booktitle", "")}"
+        if tempstr:
+            s += ", "
+        s += tempstr
+
+        tempstr = f"{self.bibdata.get("volume", "")}"
+        if tempstr:
+            s += ", "
+        s += tempstr
+
+        tempstr = f"{self.bibdata.get("pages", "")}"
+        if tempstr:
+            s += ", "
+        s += tempstr + f"."
 
         return s
 

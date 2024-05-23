@@ -30,7 +30,9 @@ def ref_query(references : References, ref_type: str):
     
     for i, field in enumerate(templates.get(ref_type)):
         print(f"Syötä {field}:")
-        bibdata[field] = input("> ").strip()
+        s = input("> ").strip()
+        if s:
+            bibdata[field] = s
     
     keystr = ""
     while True:

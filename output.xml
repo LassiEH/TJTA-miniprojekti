@@ -1,90 +1,322 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240507 07:16:42.203" rpa="false" schemaversion="4">
-<suite id="s1" name="Author Tests" source="/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/tests/author_tests.robot">
-<test id="s1-t1" name="Testaa author-olion luonti" line="8">
-<kw name="Evaluate" library="BuiltIn">
-<var>${testauthor}</var>
-<arg>author.Author("Testi Hahmo")</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:16:42.226" level="INFO">${testauthor} = Testi Hahmo</msg>
-<status status="PASS" starttime="20240507 07:16:42.225" endtime="20240507 07:16:42.226"/>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-23T15:29:17.175637" rpa="false" schemaversion="5">
+<suite id="s1" name="Ref Tests" source="D:\kurssit\ohtu\TJTA-miniprojekti\src\components\tests\ref_tests.robot">
+<test id="s1-t1" name="Testaa ref-luokka oikealla datalla" line="10">
+<kw name="Artikkeli datalla">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.310517" level="INFO">${author} = ['John Smith']</msg>
+<var>${author}</var>
+<arg>John Smith</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.310517" elapsed="0.000000"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${testauthor}</arg>
-<arg>Testi Hahmo</arg>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.310517" level="INFO">${title} = Test title: a case study</msg>
+<var>${title}</var>
+<arg>Test title: a case study</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.310517" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.311518" level="INFO">${journal} = Journal on testing</msg>
+<var>${journal}</var>
+<arg>Journal on testing</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.310517" elapsed="0.001001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.311518" level="INFO">${year} = 2024</msg>
+<var>${year}</var>
+<arg>2024</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.311518" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.311518" level="INFO">${volume} = 2</msg>
+<var>${volume}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.311518" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.311518" level="INFO">${pages} = 1-3</msg>
+<var>${pages}</var>
+<arg>1-3</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.311518" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.312518" level="INFO">${userkeys} = testkey1</msg>
+<var>${userkeys}</var>
+<arg>testkey1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.311518" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.315519" level="FAIL">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</msg>
+<var>${ref}</var>
+<arg>ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2024-05-23T15:29:17.312518" elapsed="0.004001">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<return>
+<value>${ref}</value>
+<status status="NOT RUN" start="2024-05-23T15:29:17.316519" elapsed="0.000000"/>
+</return>
+<var>${ref}</var>
+<status status="FAIL" start="2024-05-23T15:29:17.309513" elapsed="0.007006">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${ref}</arg>
+<arg>John Smith. Test title: a case study: Journal on testing, 2. 1-3, 2024</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20240507 07:16:42.226" level="INFO">Argument types are:
-&lt;class 'author.Author'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20240507 07:16:42.226" endtime="20240507 07:16:42.226"/>
+<status status="NOT RUN" start="2024-05-23T15:29:17.316519" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20240507 07:16:42.225" endtime="20240507 07:16:42.226"/>
+<doc>Testaa, että ref-luokka toimii oikealla datalla</doc>
+<tag>init</tag>
+<tag>ref</tag>
+<status status="FAIL" start="2024-05-23T15:29:17.309513" elapsed="0.007006">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
 </test>
-<test id="s1-t2" name="Testaa merkkijonoksi muuttaminen" line="12">
-<kw name="Evaluate" library="BuiltIn">
-<var>${testauthor}</var>
-<arg>author.Author("Testi Henkilö")</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:16:42.227" level="INFO">${testauthor} = Testi Henkilö</msg>
-<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.227"/>
+<test id="s1-t2" name="Testaa ref-luokka tyhjillä tekijöillä" line="18">
+<kw name="Artikkeli rikkinäisellä datalla">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.317519" level="INFO">${author} = []</msg>
+<var>${author}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.317519" elapsed="0.000000"/>
 </kw>
-<kw name="Call Method" library="BuiltIn">
-<var>${str}</var>
-<arg>${testauthor}</arg>
-<arg>__str__</arg>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.317519" level="INFO">${title} = Test title: a case study</msg>
+<var>${title}</var>
+<arg>Test title: a case study</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.317519" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.317519" level="INFO">${journal} = Journal on testing</msg>
+<var>${journal}</var>
+<arg>Journal on testing</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.317519" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.318519" level="INFO">${year} = 2024</msg>
+<var>${year}</var>
+<arg>2024</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.318519" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.318519" level="INFO">${volume} = 2</msg>
+<var>${volume}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.318519" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.318519" level="INFO">${pages} = 1-3</msg>
+<var>${pages}</var>
+<arg>1-3</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.318519" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.318519" level="INFO">${userkeys} = testkey1</msg>
+<var>${userkeys}</var>
+<arg>testkey1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.318519" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.320023" level="FAIL">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</msg>
+<var>${ref}</var>
+<arg>ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2024-05-23T15:29:17.318519" elapsed="0.001504">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<return>
+<value>${ref}</value>
+<status status="NOT RUN" start="2024-05-23T15:29:17.320023" elapsed="0.000000"/>
+</return>
+<var>${ref}</var>
+<status status="FAIL" start="2024-05-23T15:29:17.317519" elapsed="0.002504">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${ref}</arg>
+<arg>None</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-05-23T15:29:17.320023" elapsed="0.000000"/>
+</kw>
+<doc>Testaa, että ref-luokka ei tallenna, jos syötteessä ei ole kirjoittajaa</doc>
+<tag>init</tag>
+<tag>ref</tag>
+<status status="FAIL" start="2024-05-23T15:29:17.316519" elapsed="0.004507">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</test>
+<test id="s1-t3" name="Testaa references-luokan lisäys- ja tekstiksi muuttamisen metodit" line="25">
+<kw name="Artikkeli datalla">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${author} = ['John Smith']</msg>
+<var>${author}</var>
+<arg>John Smith</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.321026" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${title} = Test title: a case study</msg>
+<var>${title}</var>
+<arg>Test title: a case study</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.322026" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${journal} = Journal on testing</msg>
+<var>${journal}</var>
+<arg>Journal on testing</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.322026" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${year} = 2024</msg>
+<var>${year}</var>
+<arg>2024</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.322026" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${volume} = 2</msg>
+<var>${volume}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.322026" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.322026" level="INFO">${pages} = 1-3</msg>
+<var>${pages}</var>
+<arg>1-3</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.322026" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.323026" level="INFO">${userkeys} = testkey1</msg>
+<var>${userkeys}</var>
+<arg>testkey1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-23T15:29:17.323026" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.324026" level="FAIL">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</msg>
+<var>${ref}</var>
+<arg>ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2024-05-23T15:29:17.323026" elapsed="0.001000">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<return>
+<value>${ref}</value>
+<status status="NOT RUN" start="2024-05-23T15:29:17.324026" elapsed="0.000000"/>
+</return>
+<var>${ref}</var>
+<status status="FAIL" start="2024-05-23T15:29:17.321026" elapsed="0.003000">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${references}</var>
+<arg>references.References()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-05-23T15:29:17.324026" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${references}</arg>
+<arg>lisaaLahde</arg>
+<arg>${ref}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:16:42.227" level="INFO">${str} = Testi Henkilö</msg>
-<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.227"/>
+<status status="NOT RUN" start="2024-05-23T15:29:17.325026" elapsed="0.000000"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${str}</arg>
-<arg>Testi Henkilö</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.228"/>
-</kw>
-<status status="PASS" starttime="20240507 07:16:42.227" endtime="20240507 07:16:42.228"/>
-</test>
-<test id="s1-t3" name="Testaa apa-muotoinen merkkijono" line="17">
-<kw name="Evaluate" library="BuiltIn">
-<var>${testauthor}</var>
-<arg>author.Author("Testi Tutkija")</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240507 07:16:42.229" level="INFO">${testauthor} = Testi Tutkija</msg>
-<status status="PASS" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.229"/>
-</kw>
-<kw name="Call Method" library="BuiltIn">
-<var>${str}</var>
-<arg>${testauthor}</arg>
-<arg>apastr</arg>
+<kw name="Call Method" owner="BuiltIn">
+<var>${text}</var>
+<arg>${references}</arg>
+<arg>toString</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<msg timestamp="20240507 07:16:42.229" level="INFO">${str} = Testi Tutkija</msg>
-<status status="PASS" starttime="20240507 07:16:42.229" endtime="20240507 07:16:42.229"/>
+<status status="NOT RUN" start="2024-05-23T15:29:17.325026" elapsed="0.000000"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${str}</arg>
-<arg>Tutkija, T.</arg>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>John Smith. Test title: a case study: Journal on testing, 2. 1-3, 2024</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20240507 07:16:42.229" level="FAIL">Testi Tutkija != Tutkija, T.</msg>
-<status status="FAIL" starttime="20240507 07:16:42.229" endtime="20240507 07:16:42.229"/>
+<status status="NOT RUN" start="2024-05-23T15:29:17.325026" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" starttime="20240507 07:16:42.228" endtime="20240507 07:16:42.230">Testi Tutkija != Tutkija, T.</status>
+<doc>Testaa, että Ref-olio voidaan lisätä References-olioon</doc>
+<tag>references</tag>
+<status status="FAIL" start="2024-05-23T15:29:17.321026" elapsed="0.004000">Evaluating expression 'ref.Ref($author, $title, $journal, $year, $volume, $pages, $userkeys)' failed: NameError: name 'ref' is not defined nor importable as module</status>
 </test>
-<doc>Testitapaukset author-luokalle</doc>
-<status status="FAIL" starttime="20240507 07:16:42.204" endtime="20240507 07:16:42.230"/>
+<test id="s1-t4" name="Testaa tyhjän references-olion tulostaminen" line="35">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-23T15:29:17.327027" level="FAIL">Evaluating expression 'references.References()' failed: NameError: name 'references' is not defined nor importable as module</msg>
+<var>${references}</var>
+<arg>references.References()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="FAIL" start="2024-05-23T15:29:17.326026" elapsed="0.001001">Evaluating expression 'references.References()' failed: NameError: name 'references' is not defined nor importable as module</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<var>${text}</var>
+<arg>${references}</arg>
+<arg>toString</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2024-05-23T15:29:17.327027" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>Lähteitä ei ole.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-05-23T15:29:17.327027" elapsed="0.000000"/>
+</kw>
+<doc>Testaa, että tyhjä references olio tulostaa oikein</doc>
+<tag>references</tag>
+<status status="FAIL" start="2024-05-23T15:29:17.325026" elapsed="0.003001">Evaluating expression 'references.References()' failed: NameError: name 'references' is not defined nor importable as module</status>
+</test>
+<doc>Testitapaukset ref-luokan ja references-luokan toiminnalle</doc>
+<status status="FAIL" start="2024-05-23T15:29:17.178638" elapsed="0.149389"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="2" skip="0">init</stat>
+<stat pass="0" fail="2" skip="0">ref</stat>
+<stat pass="0" fail="2" skip="0">references</stat>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Author Tests">Author Tests</stat>
+<stat pass="0" fail="4" skip="0" id="s1" name="Ref Tests">Ref Tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240507 07:16:42.223" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/ref.py' contains no keywords.</msg>
-<msg timestamp="20240507 07:16:42.224" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/references.py' contains no keywords.</msg>
-<msg timestamp="20240507 07:16:42.224" level="WARN">Imported library '/home/lassie/MyTemp/python/TJTA-miniprojekti/src/components/author.py' contains no keywords.</msg>
+<msg time="2024-05-23T15:29:17.142717" level="WARN">Error in file 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\tests\ref_tests.robot' on line 59: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-23T15:29:17.143717" level="WARN">Error in file 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\tests\ref_tests.robot' on line 71: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-23T15:29:17.274169" level="ERROR">Error in file 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\tests\resource.robot' on line 2: Importing library 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\ref.py' failed: ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "D:\kurssit\ohtu\TJTA-miniprojekti\src\components\ref.py", line 2, in &lt;module&gt;
+    from .author import Author
+PYTHONPATH:
+  D:\kurssit\ohtu\TJTA-miniprojekti\src\components
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12\Scripts\robot.exe
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12\Lib\site-packages</msg>
+<msg time="2024-05-23T15:29:17.277172" level="ERROR">Error in file 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\tests\resource.robot' on line 3: Importing library 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\references.py' failed: ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "D:\kurssit\ohtu\TJTA-miniprojekti\src\components\references.py", line 3, in &lt;module&gt;
+    from .ref import Ref
+PYTHONPATH:
+  D:\kurssit\ohtu\TJTA-miniprojekti\src\components
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12\Scripts\robot.exe
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\mrjon\AppData\Local\Programs\Python\Python312
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12
+  C:\Users\mrjon\AppData\Local\pypoetry\Cache\virtualenvs\tjta-miniprojekti-Eh4bfE32-py3.12\Lib\site-packages</msg>
+<msg time="2024-05-23T15:29:17.279676" level="WARN">Imported library 'D:\kurssit\ohtu\TJTA-miniprojekti\src\components\author.py' contains no keywords.</msg>
 </errors>
 </robot>
