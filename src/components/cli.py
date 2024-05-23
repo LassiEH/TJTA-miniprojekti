@@ -117,48 +117,70 @@ class Cli:
     def poista_lahde(self):
         index = 0
         while True:
+            ids = self.references.get_references_ids()
+            if (index > len(ids)-1):
+                index -= 1
+            if (index < 0):
+                index = 0
             print()
             print()
             print("Valitse lähde, jonka haluat poistaa.")
             print()
-            ids = self.references.get_references_ids()
             if (len(ids) == 0):
                 print("Ei lähteitä")
-            for i, ref in enumerate(ids):
-                if i == index:
-                    print(">   ", ref)
-                else:
-                    print("    ", ref)
-
+            else:
+                for i, ref in enumerate(ids):
+                    if i == index:
+                        print(">   ", ref)
+                    else:
+                        print("    ", ref)
             print()
             print()
             print(" liiku alas [j]   liiku ylös [k]   poista lähde [d]  poistu [q]")
+            print(" Syöta \"*\" jos haluat poistaa kaikki lähteet.")
             user_input = input("> ")
             if (user_input == "q"):
-
                 return
+
             if (user_input == "k"):
                 index -= 1
-                index = max(index, 0)
+                if (index < 0):
+                    index = 0
                 continue
 
             if (user_input == "j"):
                 index += 1
-                index = min(index, len(ids)-1)
+                if (index > len(ids)-1):
+                    index = len(ids)-1
                 continue
 
             if (user_input == "d"):
                 print()
+                if (len(ids) == 0):
+                    print("Lähtietä ei ole")
+                    continue
                 print("Halutatko poistaa ", ids[index] , "?")
                 print("[k]yllä [e]i")
                 user_input = input("> ")
                 if (user_input == "k"):
                     self.references.remove_ref(ids[index])
+                    continue
                 if (user_input == "e"):
                     continue
-
-                
-            
+                    
+            if (user_input == "*"):
+                print()
+                if (len(ids) == 0):
+                    print("Lähtietä ei ole")
+                    continue
+                print("Halutatko poistaa kaikki lähteet?")
+                print("[k]yllä [e]i")
+                user_input = input("> ")
+                if (user_input == "k"):
+                    self.references.remove_ref("*")
+                    index = 0
+                if (user_input == "e"):
+                    continue
 
     def kaynnista(self):
         """
