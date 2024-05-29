@@ -7,6 +7,8 @@ T채m채 projekti on l채hteidenhallintaohjelma, jolla k채ytt채j채 pystyy lis채채m�
 
 [CI-palvelu](https://app.codecov.io/gh/LassiEH/TJTA-miniprojekti)
 
+[Raportti](https://docs.google.com/document/d/1HhSpZE2f1gKj_uLH3UUHWkUEd3PwnZkL8yv1ppZpYBk/edit?usp=sharing)
+
 # Asennusohjeet
 * Kloonaa github-repositorio haluamaasi sijaintiin laitteellasi.
 
